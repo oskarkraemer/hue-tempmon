@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    pull_policy: build
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - db:/huetemp_data
+    environment:
+      - HUE_BRIDGE_IP=${HUE_BRIDGE_IP}
+      - HUE_API_KEY=${HUE_API_KEY}
+    env_file:
+      - .env
+
+volumes:
+  db:
