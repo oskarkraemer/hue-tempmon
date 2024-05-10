@@ -17,6 +17,7 @@ RUN go build -o /go-docker-huetemp
 FROM alpine:latest
 COPY --from=builder /go-docker-huetemp /go-docker-huetemp
 COPY --from=builder /app/templates /templates
+COPY --from=builder /app/static /static
 
 EXPOSE 8080
 CMD [ "/go-docker-huetemp" ]
