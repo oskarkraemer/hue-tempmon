@@ -11,7 +11,7 @@ import (
 
 func ScheduleMeasurements(bridge HueBridge, devices []Device, db *sql.DB, interval string) {
 	c := cron.New()
-	c.AddFunc("@every "+interval, func() { DoMeasurement(bridge, devices, db) })
+	c.AddFunc("0,20,40 * * * *", func() { DoMeasurement(bridge, devices, db) })
 	c.Start()
 }
 
