@@ -10,4 +10,6 @@ func AddWebserverRoutes(api *gin.Engine) {
 			"title": "Hello World!",
 		})
 	})
+
+	api.Static("/static", "./static")
 }
