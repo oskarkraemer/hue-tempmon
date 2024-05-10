@@ -7,6 +7,7 @@ RUN go mod download
 
 COPY *.go ./
 COPY templates ./templates
+COPY static ./static
 
 RUN go mod tidy
 
